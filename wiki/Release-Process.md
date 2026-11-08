@@ -13,7 +13,8 @@ A release starts from a pushed tag on a commit that already passed CI on `main`.
 | Scripts, configs, and wiki | `./scripts/local-gate.sh` |
 | Build and verify fonts | `./scripts/build-all.sh`, then uploads the fonts as a 14-day artifact |
 
-Upstream sources are cached by the hash of `versions.env`. Every action is
+Upstream sources are cached by the hash of `versions.env` and
+`scripts/fetch-sources.sh`. Every action is
 pinned to a commit SHA, and the workflow token is read-only. Dependabot proposes
 action updates monthly and patch-level Python updates weekly.
 

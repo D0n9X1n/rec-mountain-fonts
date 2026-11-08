@@ -37,8 +37,10 @@ For `anthropic-serif`, from the configured static weight:
 ## Stage 2: merge CJK
 
 `scripts/merge-cjk.py` runs under FontForge. It copies the CJK, kana, and
-full-width/halfwidth ranges from Resource Han Rounded, scales them to fit
-the Latin font's line height times the CJK scale (default 1.1), and centres them.
+full-width/halfwidth ranges from Resource Han Rounded, scales them to the
+Latin font's em, shrinks them only if they are taller than its
+ascender–descender body, multiplies them by the CJK scale (default 1.15), and
+centres them on that body.
 Mono families get exact cell widths; proportional families keep each glyph's
 own scaled width (`--proportional`).
 
