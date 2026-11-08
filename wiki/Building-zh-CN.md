@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ```bash
 ./scripts/build-all.sh                       # 并行构建 configs/ 中的所有字体
 ./scripts/build.sh configs/st-helens.yaml    # 只构建一套
-./scripts/build-all.sh 1.2                   # 覆盖中日文缩放比例（默认 1.1）
+./scripts/build-all.sh 1.2                   # 覆盖中日文缩放比例（默认 1.15）
 ```
 
 输出位于 `fonts/<紧凑字体名>/`，例如
@@ -40,10 +40,11 @@ pip install -r requirements.txt
 |---|---|
 | `sources/recursive/` | `Recursive_VF_<版本>.ttf` 和代码连字特性文件 |
 | `sources/anthropic-serif/` | 四个 Anthropic Serif Text `.otf` 文件，每个都按固定的 SHA-256 校验 |
-| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Regular.ttf` 和 `-Bold.ttf` |
+| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Medium.ttf` 和 `-Bold.ttf` |
 | `sources/nerd-fonts-patcher/` | Nerd Fonts 的 `font-patcher` 及其图标源文件 |
 
 每个目录在 `.version` 中记录版本；在 `versions.env` 改变之前，后续构建会跳过下载。
+资源圆体缺少某个字重文件时也会重新下载。
 `sources/`、`build/` 和 `fonts/` 均被 git 忽略。
 
 ## 预览图

@@ -12,7 +12,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 CONFIG="${1:?Usage: $0 <config.yaml> [cjk_scale]}"
-CJK_SCALE="${2:-1.1}"
+CJK_SCALE="${2:-1.15}"
 
 if [ -f venv/bin/activate ]; then
     source venv/bin/activate
@@ -82,8 +82,9 @@ echo "── 2/4 Merge Resource Han Rounded ${RESOURCE_HAN_ROUNDED_VERSION} ─�
 for style in "${STYLES[@]}"; do
     case "$style" in
         Bold*) cjk="$CJK_DIR/ResourceHanRoundedCN-Bold.ttf" ;;
-        *) cjk="$CJK_DIR/ResourceHanRoundedCN-Regular.ttf" ;;
+        *) cjk="$CJK_DIR/ResourceHanRoundedCN-Medium.ttf" ;;
     esac
+    echo "${style} ← $(basename "$cjk")"
     run_job "$WORK/logs/cjk-${style}.log" \
         fontforge -script scripts/merge-cjk.py \
         "$WORK/1-instance/${COMPACT}-${style}.ttf" "$cjk" "$WORK/2-cjk/${COMPACT}-${style}.ttf" \

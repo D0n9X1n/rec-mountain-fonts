@@ -28,7 +28,7 @@ against the current scripts and configs before writing them.
   to the Semibold weights to match the Recursive families' wght 600. Anthropic
   Serif has no release feed, so its files are pinned by SHA-256 in
   `scripts/fetch-sources.sh`; update those hashes with `ANTHROPIC_SERIF_VERSION`.
-- All families share one CJK scale (`build-all.sh` default 1.1).
+- All families share one CJK scale (`build-all.sh` default 1.15).
 - Upstream versions live only in `versions.env`. Never vendor upstream fonts or
   the Nerd Fonts patcher into the repository; `sources/` is fetched and ignored.
 - Python dependencies are pinned exactly in `requirements.txt`.

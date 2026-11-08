@@ -5,7 +5,8 @@
 #   ./scripts/fetch-sources.sh
 #
 # Versions come from versions.env. A source is downloaded again only when its
-# pinned version changes.
+# pinned version changes, or, for Resource Han Rounded, when a weight file is
+# missing.
 
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -30,9 +31,17 @@ if ! current "$dir" "$RECURSIVE_VERSION"; then
     echo "$RECURSIVE_VERSION" > "$dir/.version"
 fi
 
-# ── Resource Han Rounded CN (Regular + Bold) ──
+# ── Resource Han Rounded CN (Medium + Bold) ──
+# Downloaded again when the version changes or either weight file is missing.
 dir="sources/resource-han-rounded"
-if ! current "$dir" "$RESOURCE_HAN_ROUNDED_VERSION"; then
+RHR_WEIGHTS=(Medium Bold)
+rhr_complete() {
+    current "$dir" "$RESOURCE_HAN_ROUNDED_VERSION" || return 1
+    for weight in "${RHR_WEIGHTS[@]}"; do
+        [ -f "$dir/ResourceHanRoundedCN-${weight}.ttf" ] || return 1
+    done
+}
+if ! rhr_complete; then
     echo "Fetching Resource Han Rounded v${RESOURCE_HAN_ROUNDED_VERSION}..."
     SEVENZIP=$(command -v 7z || command -v 7zz || true)
     if [ -z "$SEVENZIP" ]; then
@@ -43,7 +52,7 @@ if ! current "$dir" "$RESOURCE_HAN_ROUNDED_VERSION"; then
     curl -fsSL -o "$TMP/rhr.7z" \
         "https://github.com/CyanoHao/Resource-Han-Rounded/releases/download/v${RESOURCE_HAN_ROUNDED_VERSION}/RHR-CN-${RESOURCE_HAN_ROUNDED_VERSION}.7z"
     "$SEVENZIP" x -o"$TMP/rhr" "$TMP/rhr.7z" > /dev/null
-    for weight in Regular Bold; do
+    for weight in "${RHR_WEIGHTS[@]}"; do
         src=$(find "$TMP/rhr" -name "ResourceHanRoundedCN-${weight}.ttf" | head -1)
         if [ -z "$src" ]; then
             echo "ERROR: ResourceHanRoundedCN-${weight}.ttf not found in archive" >&2

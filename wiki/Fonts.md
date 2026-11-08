@@ -108,18 +108,19 @@ CJK merge and the icons line up as they do in the Recursive families.
 | Resource Han Rounded CN | CJK ideographs (20,976 in U+4E00–9FFF), kana, CJK punctuation, full-width and halfwidth forms |
 | Nerd Fonts | Every icon set the patcher's `--complete` option adds, including Powerline |
 
-CJK glyphs come from Resource Han Rounded's Regular weight for Regular and
+CJK glyphs come from Resource Han Rounded's Medium weight for Regular and
 Italic, and its Bold weight for Bold and Bold Italic. In every family they are
-scaled 1.1× relative to the Latin font's line height. Hangul syllables are not
-included.
+scaled to the Latin font's em, shrunk only if they would be taller than its
+ascender–descender body, then enlarged 1.15× and centred on that body. Hangul
+syllables are not included.
 
 ## Spacing differences
 
 | Glyph group | St.Helens | Mt.Baker | Mt.Adams |
 |---|---|---|---|
 | ASCII | Always 600 | Natural width (for example `i` 350, `m` 850) | Natural width (for example `i` 300, `m` 944) |
-| CJK and full-width forms | 1200 (two cells) | Scaled source width (1100) | Scaled source width (1100) |
-| Halfwidth forms | 600 (one cell) | Scaled source width (550) | Scaled source width (550) |
+| CJK and full-width forms | 1200 (two cells) | Scaled source width (1150) | Scaled source width (1150) |
+| Halfwidth forms | 600 (one cell) | Scaled source width (575) | Scaled source width (575) |
 | Nerd Font icons | Two cells, centred | Natural width | Natural width |
 | Code ligatures (`=>`, `!=`) | On by default | Off | None |
 

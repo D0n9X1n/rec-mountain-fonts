@@ -7,7 +7,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-CJK_SCALE="${1:-1.1}"
+CJK_SCALE="${1:-1.15}"
 CONFIGS=(configs/*.yaml)
 
 # Fetch once up front so the parallel builds don't download at the same time
