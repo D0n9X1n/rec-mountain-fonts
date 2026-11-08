@@ -411,6 +411,29 @@ def render_serif(fam, card):
     ])
 
 
+# ── Chinese ──────────────────────────────────────────────────────────────────
+
+def render_cjk(fam, card):
+    head = fam.font("sans", "Bold", 13)
+    label = fam.font("mono", "Regular", 11)
+    y = PAD
+    samples = {
+        "mono": "print(\"你好，世界\")  # 中文注释对齐",
+        "sans": "Rec Sans 与中文排版，自然而清晰。",
+        "serif": "Rec Serif 与中文排版，宜于长文阅读。",
+    }
+    for key in Families.KEYS:
+        y += 18
+        card.text(PAD, y, fam.name(key).upper(), head, "muted")
+        y += 8
+        for style in ("Regular", "Bold"):
+            y += 42
+            card.text(PAD, y - 6, style, label, "muted")
+            card.text(PAD + 100, y, samples[key], fam.font(key, style, 26), "bright" if style == "Bold" else "fg")
+        y += 22
+    return y + PAD - 22
+
+
 # ── Glyphs ───────────────────────────────────────────────────────────────────
 
 def render_glyphs(fam, card):
@@ -476,6 +499,7 @@ PREVIEWS = {
     "styles": render_styles,
     "text": render_text,
     "serif": render_serif,
+    "cjk": render_cjk,
     "glyphs": render_glyphs,
 }
 
