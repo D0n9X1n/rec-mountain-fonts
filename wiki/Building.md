@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ## Build
 
 ```bash
-./scripts/build-all.sh                       # every family in configs/, in parallel
+./scripts/build-all.sh                       # every family in configs/, one after another
 ./scripts/build.sh configs/st-helens.yaml    # one family
 ./scripts/build-all.sh 1.2                   # override the CJK scale (default 1.15)
 ```

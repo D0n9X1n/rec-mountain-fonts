@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ## 构建字体
 
 ```bash
-./scripts/build-all.sh                       # 并行构建 configs/ 中的所有字体
+./scripts/build-all.sh                       # 依次构建 configs/ 中的所有字体
 ./scripts/build.sh configs/st-helens.yaml    # 只构建一套
 ./scripts/build-all.sh 1.2                   # 覆盖中日文缩放比例（默认 1.15）
 ```
