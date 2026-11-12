@@ -108,8 +108,8 @@ CJK merge and the icons line up as they do in the Recursive families.
 | Resource Han Rounded CN | CJK ideographs (20,976 in U+4E00–9FFF), kana, CJK punctuation, full-width and halfwidth forms |
 | Nerd Fonts | Every icon set the patcher's `--complete` option adds, including Powerline |
 
-CJK glyphs come from Resource Han Rounded at the same weight as the Latin
-glyphs: wght 400 for Regular and Italic, and wght 600 for Bold and Bold Italic. In every family they are
+CJK glyphs come from Resource Han Rounded: wght 500 for Regular and Italic, one
+step heavier than the Latin wght 400, and wght 600 for Bold and Bold Italic, the same as the Latin. In every family they are
 scaled to the Latin font's em, shrunk only if they would be taller than its
 ascender–descender body, then enlarged 1.15× and centred on that body. Hangul
 syllables are not included.

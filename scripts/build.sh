@@ -82,7 +82,7 @@ echo "── 2/4 Merge Resource Han Rounded ${RESOURCE_HAN_ROUNDED_VERSION} ─�
 for style in "${STYLES[@]}"; do
     case "$style" in
         Bold*) cjk="$CJK_DIR/ResourceHanRoundedCN-SemiBold.ttf" ;;
-        *) cjk="$CJK_DIR/ResourceHanRoundedCN-Regular.ttf" ;;
+        *) cjk="$CJK_DIR/ResourceHanRoundedCN-Medium.ttf" ;;
     esac
     echo "${style} ← $(basename "$cjk")"
     run_job "$WORK/logs/cjk-${style}.log" \
