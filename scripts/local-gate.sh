@@ -48,6 +48,9 @@ python3 scripts/check-wiki.py
 step "Wiki publisher"
 bash scripts/test-wiki-publish.sh
 
+step "Resource Han Rounded fetch"
+bash scripts/test-fetch-cjk.sh
+
 step "Release notes"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT

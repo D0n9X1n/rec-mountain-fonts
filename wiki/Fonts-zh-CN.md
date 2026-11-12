@@ -105,8 +105,8 @@ Mt.Adams（`configs/mt-adams.yaml`）的每种样式取自 Anthropic Serif Text 
 | 资源圆体 CN | 汉字（U+4E00–9FFF 中 20,976 个）、假名、CJK 标点、全角和半角字符 |
 | Nerd Fonts | 补丁工具 `--complete` 选项加入的全部图标集，包括 Powerline |
 
-Regular 和 Italic 使用资源圆体 Medium 字重的中日文字形，Bold 和 Bold Italic
-使用其 Bold 字重。在每套字体中，字形先按拉丁字体的 em 缩放，只有高于其上伸部到下伸部的
+中日文字形来自资源圆体，字重与拉丁字形一致：Regular 和 Italic 使用 wght 400，
+Bold 和 Bold Italic 使用 wght 600。在每套字体中，字形先按拉丁字体的 em 缩放，只有高于其上伸部到下伸部的
 字身时才缩小，然后放大 1.15 倍并在该字身中居中。不包含韩文音节。
 
 ## 字宽差异

@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ## 构建字体
 
 ```bash
-./scripts/build-all.sh                       # 并行构建 configs/ 中的所有字体
+./scripts/build-all.sh                       # 依次构建 configs/ 中的所有字体
 ./scripts/build.sh configs/st-helens.yaml    # 只构建一套
 ./scripts/build-all.sh 1.2                   # 覆盖中日文缩放比例（默认 1.15）
 ```
@@ -40,11 +40,11 @@ pip install -r requirements.txt
 |---|---|
 | `sources/recursive/` | `Recursive_VF_<版本>.ttf` 和代码连字特性文件 |
 | `sources/anthropic-serif/` | 四个 Anthropic Serif Text `.otf` 文件，每个都按固定的 SHA-256 校验 |
-| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Medium.ttf` 和 `-Bold.ttf` |
+| `sources/resource-han-rounded/` | 从可变字体生成的 `ResourceHanRoundedCN-Regular.ttf`（wght 400）和 `-SemiBold.ttf`（wght 600），其压缩包按固定的 SHA-256 校验 |
 | `sources/nerd-fonts-patcher/` | Nerd Fonts 的 `font-patcher` 及其图标源文件 |
 
 每个目录在 `.version` 中记录版本；在 `versions.env` 改变之前，后续构建会跳过下载。
-资源圆体缺少某个字重文件时也会重新下载。
+资源圆体缺少某个字重文件或 `scripts/instance-cjk.py` 改变时也会重新下载。
 `sources/`、`build/` 和 `fonts/` 均被 git 忽略。
 
 ## 预览图
@@ -63,7 +63,7 @@ python3 scripts/render-previews.py <目录>     # 或结构相同的其他目录
 ## 检查
 
 ```bash
-./scripts/local-gate.sh            # 脚本、配置、百科、发布说明（几秒）
+./scripts/local-gate.sh            # 脚本、配置、百科、中日文源获取、发布说明（几秒）
 ./scripts/local-gate.sh --build    # 同时构建并校验所有字体
 ```
 

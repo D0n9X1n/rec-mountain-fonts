@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ## Build
 
 ```bash
-./scripts/build-all.sh                       # every family in configs/, in parallel
+./scripts/build-all.sh                       # every family in configs/, one after another
 ./scripts/build.sh configs/st-helens.yaml    # one family
 ./scripts/build-all.sh 1.2                   # override the CJK scale (default 1.15)
 ```
@@ -42,12 +42,12 @@ pinned in `versions.env` into `sources/`:
 |---|---|
 | `sources/recursive/` | `Recursive_VF_<version>.ttf` and the code-ligature feature file |
 | `sources/anthropic-serif/` | Four Anthropic Serif Text `.otf` files, each checked against its pinned SHA-256 |
-| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Medium.ttf` and `-Bold.ttf` |
+| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Regular.ttf` (wght 400) and `-SemiBold.ttf` (wght 600), made from the variable font, whose archive is checked against its pinned SHA-256 |
 | `sources/nerd-fonts-patcher/` | The Nerd Fonts `font-patcher` and its glyph sources |
 
 Each directory records its version in `.version`; later builds skip the download
 until `versions.env` changes. Resource Han Rounded is also downloaded again
-when one of its weight files is missing. `sources/`, `build/`, and `fonts/` are git-ignored.
+when one of its weight files is missing or `scripts/instance-cjk.py` changes. `sources/`, `build/`, and `fonts/` are git-ignored.
 
 ## Preview images
 
@@ -67,7 +67,7 @@ apps.
 ## Checks
 
 ```bash
-./scripts/local-gate.sh            # scripts, configs, wiki, release notes (seconds)
+./scripts/local-gate.sh            # scripts, configs, wiki, CJK fetch, release notes (seconds)
 ./scripts/local-gate.sh --build    # also builds and verifies every family
 ```
 

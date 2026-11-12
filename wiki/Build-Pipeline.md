@@ -37,7 +37,8 @@ For `anthropic-serif`, from the configured static weight:
 ## Stage 2: merge CJK
 
 `scripts/merge-cjk.py` runs under FontForge. It copies the CJK, kana, and
-full-width/halfwidth ranges from Resource Han Rounded, scales them to the
+full-width/halfwidth ranges from Resource Han Rounded (wght 400 for Regular and
+Italic, wght 600 for Bold and Bold Italic), scales them to the
 Latin font's em, shrinks them only if they are taller than its
 ascender–descender body, multiplies them by the CJK scale (default 1.15), and
 centres them on that body.
@@ -72,5 +73,11 @@ error:
 | 中, あ, a Nerd Font icon, and a Powerline arrow are present | Yes | Yes |
 | `post.isFixedPitch` | 1 | 0 |
 | ASCII advances | All equal to the space | At least two different widths |
-| CJK advance | Two cells | — |
+| CJK advance | Two cells | One width for every ideograph; halfwidth ｱ is present and takes half (± 1) |
+| CJK stem ratio of 丨 and 一 (400: 0.089, 600: 0.126, ± 0.006) | Yes | Yes |
 | `head.flags` bit 4 | Clear | — |
+
+After every family is built, `build-all.sh` runs `scripts/test-verify-fonts.py`,
+which alters copies of Mt.Baker Regular (a missing or wider halfwidth form, a
+wider ideograph, a missing stem glyph) and fails unless the verifier reports
+each one.

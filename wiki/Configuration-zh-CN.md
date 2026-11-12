@@ -83,12 +83,13 @@ Recursive 把代码连字画成宽于一格的字形。对等宽字体，构建�
 ```bash
 RECURSIVE_VERSION=1.085
 ANTHROPIC_SERIF_VERSION=25.324
-RESOURCE_HAN_ROUNDED_VERSION=0.990
+RESOURCE_HAN_ROUNDED_VERSION=1.910
 NERD_FONTS_VERSION=3.5.1
 ```
 
 `./scripts/check-updates.sh` 把这些版本与 GitHub 上的最新发布（不含预发布）比较，
-有落后时以状态码 1 退出。Anthropic Serif 没有发布源：`ANTHROPIC_SERIF_VERSION` 是它的名称表版本，
+有落后时以状态码 1 退出。资源圆体固定为预发布版本（唯一提供可变字体的版本），因此与包括预发布在内的最新发布比较，
+`scripts/fetch-sources.sh` 按 SHA-256 固定它的压缩包。Anthropic Serif 没有发布源：`ANTHROPIC_SERIF_VERSION` 是它的名称表版本，
 `scripts/fetch-sources.sh` 按 SHA-256 固定它的每个文件，因此要同时修改那里的哈希值和版本号。要更新某个版本，修改版本号，同时更新 `README.md` 中的版本徽章和
 两个配置页面中的上述代码块（不一致时本地检查会失败），运行
 `./scripts/local-gate.sh --build`，并在编辑器中检查效果后再合并。

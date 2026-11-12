@@ -34,7 +34,7 @@ flowchart LR
 
 ## 阶段 2：合入中日文
 
-`scripts/merge-cjk.py` 在 FontForge 中运行。它从资源圆体复制汉字、假名以及全角/半角区段，
+`scripts/merge-cjk.py` 在 FontForge 中运行。它从资源圆体（Regular 和 Italic 用 wght 400，Bold 和 Bold Italic 用 wght 600）复制汉字、假名以及全角/半角区段，
 先按拉丁字体的 em 缩放，只有高于其上伸部到下伸部的字身时才缩小，
 再乘以中日文缩放比例（默认 1.15），并在该字身中居中。等宽字体使用精确的单元格宽度；
 比例字体保留每个字形自身缩放后的宽度（`--proportional`）。
@@ -65,5 +65,9 @@ flowchart LR
 | 包含 中、あ、一个 Nerd Font 图标和一个 Powerline 箭头 | 是 | 是 |
 | `post.isFixedPitch` | 1 | 0 |
 | ASCII 步进宽度 | 全部等于空格 | 至少两种不同宽度 |
-| 汉字步进宽度 | 两格 | — |
+| 汉字步进宽度 | 两格 | 所有汉字同一宽度；必须有半角 ｱ，宽度为其一半（± 1） |
+| 丨 和 一 的笔画粗细比（400：0.089，600：0.126，± 0.006） | 是 | 是 |
 | `head.flags` 第 4 位 | 清除 | — |
+
+所有字体构建完成后，`build-all.sh` 运行 `scripts/test-verify-fonts.py`：它修改 Mt.Baker Regular 的副本
+（缺少或加宽半角字符、加宽一个汉字、缺少笔画测量字形），校验脚本必须报出每一处问题，否则失败。
