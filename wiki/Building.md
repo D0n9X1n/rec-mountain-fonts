@@ -42,7 +42,7 @@ pinned in `versions.env` into `sources/`:
 |---|---|
 | `sources/recursive/` | `Recursive_VF_<version>.ttf` and the code-ligature feature file |
 | `sources/anthropic-serif/` | Four Anthropic Serif Text `.otf` files, each checked against its pinned SHA-256 |
-| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Regular.ttf` (wght 400) and `-SemiBold.ttf` (wght 600), made from the variable font, whose archive is checked against its pinned SHA-256 |
+| `sources/resource-han-rounded/` | `ResourceHanRoundedCN-Medium.ttf` (wght 500) and `-SemiBold.ttf` (wght 600), made from the variable font, whose archive is checked against its pinned SHA-256 |
 | `sources/nerd-fonts-patcher/` | The Nerd Fonts `font-patcher` and its glyph sources |
 
 Each directory records its version in `.version`; later builds skip the download

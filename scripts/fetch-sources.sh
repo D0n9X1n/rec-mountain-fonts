@@ -38,15 +38,15 @@ if ! current "$dir" "$RECURSIVE_VERSION"; then
     echo "$RECURSIVE_VERSION" > "$dir/.version"
 fi
 
-# ── Resource Han Rounded CN (wght 400 + 600) ──
+# ── Resource Han Rounded CN (wght 500 + 600) ──
 # The CN variable font is a pre-release with no stable feed, so the archive is
 # pinned by SHA-256; update it with RESOURCE_HAN_ROUNDED_VERSION. The static
-# Regular (400) and SemiBold (600) sources are made from it by instance-cjk.py.
+# Medium (500) and SemiBold (600) sources are made from it by instance-cjk.py.
 # They are made again when the version or instance-cjk.py changes, or when
 # either file is missing.
 dir="sources/resource-han-rounded"
 RHR_SHA256=4ad7b141535a1f11831287b0a6f71ddcec8daa92dc1d82c59892068f8ae5df09
-RHR_WEIGHTS=("Regular 400" "SemiBold 600")
+RHR_WEIGHTS=("Medium 500" "SemiBold 600")
 rhr_stamp="${RESOURCE_HAN_ROUNDED_VERSION}+$(sha256 scripts/instance-cjk.py | cut -c1-12)"
 rhr_complete() {
     current "$dir" "$rhr_stamp" || return 1

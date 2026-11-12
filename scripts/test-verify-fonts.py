@@ -58,6 +58,22 @@ def halfwidth_off_by(units):
     return change
 
 
+def thin_stems(factor):
+    """Scale the stem thickness of 丨 and 一 by factor, as a lighter CJK weight would."""
+    def change(font):
+        cmap = font.getBestCmap()
+        for cp in verify_fonts.CJK_STEM_GLYPHS:
+            glyph = font["glyf"][cmap[cp]]
+            glyph.recalcBounds(font["glyf"])
+            width, height = glyph.xMax - glyph.xMin, glyph.yMax - glyph.yMin
+            axis, low = (0, glyph.xMin) if width < height else (1, glyph.yMin)
+            for i, point in enumerate(glyph.coordinates):
+                point = list(point)
+                point[axis] = round(low + (point[axis] - low) * factor)
+                glyph.coordinates[i] = point
+    return change
+
+
 CASES = [
     ("unchanged font", lambda font: None, None),
     ("missing halfwidth ｱ", drop(0xFF71), "halfwidth"),
@@ -65,6 +81,7 @@ CASES = [
     ("halfwidth ｱ 2 units over half", halfwidth_off_by(2), "halfwidth"),
     ("one ideograph 1 unit wide", widen(0x4E01, 1), "ideograph advances"),
     ("missing stem glyph 丨", drop(0x4E28), "stem glyphs"),
+    ("Regular CJK at wght 400 (stems 0.8×)", thin_stems(0.8), "stem ratio"),
 ]
 
 failed = False

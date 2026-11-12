@@ -26,7 +26,7 @@ REQUIRED_CODEPOINTS = {
 # CJK stroke weight as stem thickness / stroke length of 丨 and 一, which does
 # not change with the CJK scale. Resource Han Rounded measures about 0.089 at
 # wght 400, 0.111 at 500, 0.126 at 600, and 0.139 at 700.
-CJK_STEM_RATIO = {"Regular": 0.089, "Bold": 0.126}
+CJK_STEM_RATIO = {"Regular": 0.111, "Bold": 0.126}
 CJK_STEM_TOLERANCE = 0.006
 CJK_STEM_GLYPHS = (0x4E28, 0x4E00)
 

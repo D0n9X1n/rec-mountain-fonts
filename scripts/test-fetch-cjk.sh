@@ -70,9 +70,9 @@ mv "$tmp/archive.real" "$tmp/archive"
 
 # 2. A good archive makes both weights and stamps the recipe
 fetch || fail "fetch failed: $(cat "$tmp/out")"
-[ -f "$rhr/ResourceHanRoundedCN-Regular.ttf" ] && [ -f "$rhr/ResourceHanRoundedCN-SemiBold.ttf" ] \
+[ -f "$rhr/ResourceHanRoundedCN-Medium.ttf" ] && [ -f "$rhr/ResourceHanRoundedCN-SemiBold.ttf" ] \
   || fail "weights were not made"
-grep -q "instance 400" "$log" && grep -q "instance 600" "$log" || fail "did not instance 400 and 600"
+grep -q "instance 500" "$log" && grep -q "instance 600" "$log" || fail "did not instance 500 and 600"
 grep -q "^${RESOURCE_HAN_ROUNDED_VERSION}+" "$rhr/.version" || fail "stamp is $(cat "$rhr/.version")"
 
 # 3. A complete, current cache does nothing

@@ -40,7 +40,7 @@ pip install -r requirements.txt
 |---|---|
 | `sources/recursive/` | `Recursive_VF_<版本>.ttf` 和代码连字特性文件 |
 | `sources/anthropic-serif/` | 四个 Anthropic Serif Text `.otf` 文件，每个都按固定的 SHA-256 校验 |
-| `sources/resource-han-rounded/` | 从可变字体生成的 `ResourceHanRoundedCN-Regular.ttf`（wght 400）和 `-SemiBold.ttf`（wght 600），其压缩包按固定的 SHA-256 校验 |
+| `sources/resource-han-rounded/` | 从可变字体生成的 `ResourceHanRoundedCN-Medium.ttf`（wght 500）和 `-SemiBold.ttf`（wght 600），其压缩包按固定的 SHA-256 校验 |
 | `sources/nerd-fonts-patcher/` | Nerd Fonts 的 `font-patcher` 及其图标源文件 |
 
 每个目录在 `.version` 中记录版本；在 `versions.env` 改变之前，后续构建会跳过下载。
