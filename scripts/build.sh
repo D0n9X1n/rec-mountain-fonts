@@ -81,8 +81,8 @@ python3 scripts/instantiate-fonts.py "$CONFIG" "${LATIN_SOURCES[@]}" "$WORK/1-in
 echo "── 2/4 Merge Resource Han Rounded ${RESOURCE_HAN_ROUNDED_VERSION} ──"
 for style in "${STYLES[@]}"; do
     case "$style" in
-        Bold*) cjk="$CJK_DIR/ResourceHanRoundedCN-Bold.ttf" ;;
-        *) cjk="$CJK_DIR/ResourceHanRoundedCN-Medium.ttf" ;;
+        Bold*) cjk="$CJK_DIR/ResourceHanRoundedCN-SemiBold.ttf" ;;
+        *) cjk="$CJK_DIR/ResourceHanRoundedCN-Regular.ttf" ;;
     esac
     echo "${style} ← $(basename "$cjk")"
     run_job "$WORK/logs/cjk-${style}.log" \

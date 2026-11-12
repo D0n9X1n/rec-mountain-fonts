@@ -45,6 +45,10 @@ if [ "$FAILED" -ne 0 ]; then
     exit 1
 fi
 
+# Check that the verifier still catches broken CJK spacing and weight
+PYTHON=$([ -x venv/bin/python3 ] && echo venv/bin/python3 || echo python3)
+"$PYTHON" scripts/test-verify-fonts.py
+
 echo ""
 echo "=== All fonts built ==="
 ls -lh fonts/*/*.ttf

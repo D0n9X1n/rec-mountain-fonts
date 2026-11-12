@@ -13,7 +13,7 @@
 
 [![Recursive](https://img.shields.io/badge/Recursive-1.085-blue)](https://github.com/arrowtype/recursive/releases/tag/v1.085)
 [![Anthropic Serif](https://img.shields.io/badge/Anthropic_Serif-25.324-blue)](https://bspk.xyz)
-[![Resource Han Rounded](https://img.shields.io/badge/Resource_Han_Rounded-0.990-blue)](https://github.com/CyanoHao/Resource-Han-Rounded/releases/tag/v0.990)
+[![Resource Han Rounded](https://img.shields.io/badge/Resource_Han_Rounded-1.910-blue)](https://github.com/CyanoHao/Resource-Han-Rounded/releases/tag/v1.910)
 [![Nerd Fonts](https://img.shields.io/badge/Nerd_Fonts-3.5.1-blue)](https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.5.1)
 [![Wiki](https://img.shields.io/badge/docs-wiki-informational)](https://github.com/D0n9X1n/rec-mountain-fonts/wiki)
 [![Font license: OFL-1.1](https://img.shields.io/badge/font_license-OFL_1.1_%2B_Anthropic_Serif-lightgreen.svg)](#license)
@@ -85,7 +85,7 @@ St.Helens and Mt.Baker share one design. Every family has four styles: Regular, 
   <img alt="Chinese mixed with Latin text in Regular and Bold of all three families" src="docs/previews/cjk-light.png" width="800">
 </picture>
 
-Chinese and Japanese glyphs come from Resource Han Rounded: its Medium weight for Regular and Italic, and its Bold weight for Bold and Bold Italic. They are drawn 1.15× and centred on the Latin line. In St.Helens each one takes exactly two cells; in Mt.Baker and Mt.Adams it keeps its proportional width.
+Chinese and Japanese glyphs come from Resource Han Rounded at the Latin weights: wght 400 for Regular and Italic, and wght 600 for Bold and Bold Italic. They are drawn 1.15× and centred on the Latin line. In St.Helens each one takes exactly two cells; in Mt.Baker and Mt.Adams it keeps its proportional width.
 
 ### Glyph coverage
 

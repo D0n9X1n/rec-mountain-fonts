@@ -87,12 +87,15 @@ even if `Code Ligatures` is `true`.
 ```bash
 RECURSIVE_VERSION=1.085
 ANTHROPIC_SERIF_VERSION=25.324
-RESOURCE_HAN_ROUNDED_VERSION=0.990
+RESOURCE_HAN_ROUNDED_VERSION=1.910
 NERD_FONTS_VERSION=3.5.1
 ```
 
 `./scripts/check-updates.sh` compares these with the latest GitHub releases,
-ignoring pre-releases, and exits 1 if any is behind. Anthropic Serif has no
+ignoring pre-releases, and exits 1 if any is behind. Resource Han Rounded is
+pinned to a pre-release, the only one with a variable font, so it is compared
+with the newest release of any kind, and `scripts/fetch-sources.sh` pins its
+archive by SHA-256. Anthropic Serif has no
 release feed: `ANTHROPIC_SERIF_VERSION` is its name-table version, and
 `scripts/fetch-sources.sh` pins each of its files by SHA-256, so change the
 hashes there together with the version. To update one, change the

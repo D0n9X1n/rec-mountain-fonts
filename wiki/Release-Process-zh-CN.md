@@ -13,7 +13,7 @@
 | 脚本、配置和百科 | `./scripts/local-gate.sh` |
 | 构建并校验字体 | `./scripts/build-all.sh`，然后把字体上传为保留 14 天的构件 |
 
-上游源文件按 `versions.env` 和 `scripts/fetch-sources.sh` 的哈希缓存。每个 action 都固定到提交 SHA，工作流令牌为只读。
+上游源文件按 `versions.env`、`scripts/fetch-sources.sh` 和 `scripts/instance-cjk.py` 的哈希缓存。每个 action 都固定到提交 SHA，工作流令牌为只读。
 Dependabot 每月提出 action 更新，每周提出 Python 补丁版本更新。
 
 ## 发布工作流
